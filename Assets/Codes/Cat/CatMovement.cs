@@ -5,6 +5,7 @@ using UnityEngine;
 public class CatMovement : MonoBehaviour
 {
 
+    public Cat cat;
     public CatController catController;
     public float runSpeed = 40f;
     float horizontalMove = 0f;
@@ -15,8 +16,15 @@ public class CatMovement : MonoBehaviour
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-        if(Input.GetButtonDown("Jump")){
+        if(Input.GetButtonDown("Jump") && cat.state == CatState.Solid){
             jump = true;
+        }
+        else if(Input.GetButtonDown("Jump") && cat.state == CatState.Gas){
+            cat.toggleVisibility();
+        }
+        if(Input.GetKeyDown(KeyCode.Q)){
+            Debug.Log("Change form");
+            cat.changeform(false);
         }
     }
 
