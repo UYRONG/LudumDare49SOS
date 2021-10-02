@@ -10,6 +10,7 @@ public class Cat : MonoBehaviour
     public CatState state ;
 
     public int numOfFish;
+    public bool isVisible;
 
     void Start()
     {
@@ -72,6 +73,23 @@ public class Cat : MonoBehaviour
 
     public void teleport(Vector2 v){
         transform.position = v;
+    }
+
+    public void visible(){
+        isVisible = true;
+    }
+
+    public void invisible(){
+        isVisible = false;
+    }
+
+    public void toggleVisibility(){
+        if(isVisible){
+            invisible();
+        }
+        else{
+            visible();
+        }
     }
 
 }

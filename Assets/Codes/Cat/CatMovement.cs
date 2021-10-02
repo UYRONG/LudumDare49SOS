@@ -16,13 +16,15 @@ public class CatMovement : MonoBehaviour
 
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-        if(Input.GetButtonDown("Jump")){
+        if(Input.GetButtonDown("Jump") && cat.state == CatState.Solid){
             jump = true;
+        }
+        else if(Input.GetButtonDown("Jump") && cat.state == CatState.Gas){
+            cat.toggleVisibility();
         }
         if(Input.GetKeyDown(KeyCode.Q)){
             Debug.Log("Change form");
             cat.changeform(false);
-            
         }
     }
 
