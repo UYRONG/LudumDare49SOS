@@ -5,6 +5,7 @@ using UnityEngine;
 public class CatMovement : MonoBehaviour
 {
 
+    public Cat cat;
     public CatController catController;
     public float runSpeed = 40f;
     float horizontalMove = 0f;
@@ -17,6 +18,11 @@ public class CatMovement : MonoBehaviour
 
         if(Input.GetButtonDown("Jump")){
             jump = true;
+        }
+        if(Input.GetKeyDown(KeyCode.Q)){
+            Debug.Log("Change form");
+            cat.changeform(false);
+            
         }
     }
 
