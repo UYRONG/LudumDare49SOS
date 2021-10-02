@@ -5,13 +5,38 @@ using UnityEngine;
 
 public class HealthBar : MonoBehaviour
 {
-    public Slider slider;
-    public Gradient grad;
-    public Image fill;
+    private int health = 9;
+    
+    public Image[] hearts;
 
-    public void setHealth(float health)
+    // Update is called once per frame
+    void Update()
     {
-        slider.value = health;
-        fill.color = grad.Evaluate(health / 9);
+        if(Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            takeDamage();
+        }
+        else if(Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            heal();
+        }
+    }
+
+    void takeDamage()
+    {
+        if(health > 0)
+        {
+            hearts[health - 1].enabled = false;
+            health--;
+        }
+    }
+
+    void heal()
+    {
+        if(health < 9)
+        {
+            hearts[health].enabled = true;
+            health++;
+        }
     }
 }

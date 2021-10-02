@@ -6,7 +6,6 @@ using System;
 public class Cat : MonoBehaviour
 {
     private int currHealth;
-    public HealthBar HB;
     public SpriteRenderer SR;
     public DateTime disappear = DateTime.Now;
 
@@ -45,7 +44,6 @@ public class Cat : MonoBehaviour
             SR.enabled = true;
         }
 
-        HB.setHealth(currHealth);
 
         // testing heathbar
         if(Input.GetKey(KeyCode.LeftArrow))

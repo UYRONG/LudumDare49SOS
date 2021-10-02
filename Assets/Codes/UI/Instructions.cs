@@ -25,25 +25,12 @@ public class Instructions : MonoBehaviour
             nextInstruction();
         }
         
-        if(pressed  && (System.DateTime.Now - curr).Seconds >= 2)
+        if(pressed  && (System.DateTime.Now - curr).Seconds >= 1)
         {
             display.enabled = false;
             pressed = false;
         }
-    }
 
-    void nextInstruction()
-    {        
-        if(index < 3)
-        {
-            display.text =  instructions[index];
-            display.enabled = true;
-            index++;
-        }
-    }
-
-    void FixedUpdate()
-    {
         switch(index)
         {
             case 1: 
@@ -61,10 +48,25 @@ public class Instructions : MonoBehaviour
                     pressed = true;    
                 }
                 break;
-            default: 
+
+            case 3: 
                 curr = System.DateTime.Now;
                 pressed = true;
+                index++;
                 break;
+
+            default:
+                break;
+        }
+    }
+
+    void nextInstruction()
+    {        
+        if(index < 3)
+        {
+            display.text =  instructions[index];
+            display.enabled = true;
+            index++;
         }
     }
 }
