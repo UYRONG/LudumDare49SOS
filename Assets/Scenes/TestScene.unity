@@ -413,6 +413,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1623835051334804, guid: 9fab65f3a396eaf4fb2c796172ea03ca, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1784235645598328, guid: 9fab65f3a396eaf4fb2c796172ea03ca, type: 3}
       propertyPath: m_Name
       value: Cat
@@ -731,6 +735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34076730ec744fb89c39268a4fcd386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  teleportPosition: {x: 0, y: 0}
 --- !u!61 &4797574715241063936
 BoxCollider2D:
   m_ObjectHideFlags: 0
