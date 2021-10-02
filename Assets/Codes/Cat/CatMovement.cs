@@ -22,5 +22,6 @@ public class CatMovement : MonoBehaviour
 
     void FixedUpdate(){
         catController.Move(horizontalMove* Time.fixedDeltaTime, false, jump);
+        jump = false;
     }
 }
