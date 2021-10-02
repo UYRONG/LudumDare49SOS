@@ -13,7 +13,7 @@ public class Cat : MonoBehaviour
 
     void Start()
     {
-        
+        initialize();
     }
 
     // Update is called once per frame
@@ -28,16 +28,22 @@ public class Cat : MonoBehaviour
         state = CatState.Solid;
     }
 
-    public void teleport(Vector2 v){
-        transform.position = v;
-    }
 
+    //Health
     public void addHealth(){
         if(health != 9){
             health++;
         }
     }
 
+
+    public void reduceHealth(){
+        if(health !=0){
+            health --;
+        }
+    }
+
+    //Fish
     public bool consumeFish(){
         if(numOfFish < 10){
             return false;
@@ -48,9 +54,24 @@ public class Cat : MonoBehaviour
         }
     }
 
-    public void reduceHealth(){
-        if(health !=0){
-            health --;
+        public void pickFish(){
+            numOfFish ++;
+    }
+
+
+    //Form
+    public void changeform(bool random){
+        if(random){
+            int r = Random.Range(0,3);
+            this.state = (CatState) r;
+        }
+        else{
+            this.state = (CatState)(((int)this.state + 1)%3);
         }
     }
+
+    public void teleport(Vector2 v){
+        transform.position = v;
+    }
+
 }
