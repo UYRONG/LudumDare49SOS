@@ -5,68 +5,72 @@ using UnityEngine.UI;
 
 public class Instructions : MonoBehaviour
 {
-    private string[] instructions = {"Press Arrow Keys to Move", "Press Space Bar to Jump", "Hmm, what do these boxes do?"};
+    private string[] instructions = {"Press Arrow Keys to Move", "Press Space Bar to Jump", "Hmm, what do these boxes do?", "Ewww, don't touch that cucumber"};
     public Text display;
-    private int index = 0;
+    private int index = -1;
     private System.DateTime curr;
-    private bool pressed = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        nextInstruction();
-    }
 
     // Update is called once per frame
     void Update()
     {
-        if(!display.enabled)
+        Debug.Log(this.index);
+        if(Input.GetKeyDown(KeyCode.Q))
         {
-            nextInstruction();
+            getInstruction(0);
         }
-        
-        if(pressed  && (System.DateTime.Now - curr).Seconds >= 1)
+
+        if(Input.GetKeyDown(KeyCode.W))
         {
-            display.enabled = false;
-            pressed = false;
+            getInstruction(1);
+        }
+
+
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            getInstruction(2);
+        }
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            getInstruction(3);
         }
 
         switch(index)
         {
-            case 1: 
-                if(!pressed && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow)))
+            case -1: break;
+            case 0:
+                if(Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.LeftArrow))
                 {
-                    curr = System.DateTime.Now;
-                    pressed = true;
-                }      
-                break;
-
-            case 2: 
-                if(!pressed && (Input.GetKeyDown(KeyCode.Space)))
-                {
-                    curr = System.DateTime.Now;
-                    pressed = true;    
+                    display.enabled = false;
+                    this.index = -1;
                 }
                 break;
 
-            case 3: 
-                curr = System.DateTime.Now;
-                pressed = true;
-                index++;
+            case 1:
+                if(Input.GetKeyDown(KeyCode.Space))
+                {
+                    display.enabled = false;
+                    this.index = -1;
+                }
                 break;
 
-            default:
+            case 2: case 3:
+                if((System.DateTime.Now - curr).Seconds >= 3)
+                {
+                    display.enabled = false;
+                    this.index = -1;
+                }
                 break;
         }
     }
 
-    void nextInstruction()
-    {        
-        if(index < 3)
-        {
-            display.text =  instructions[index];
-            display.enabled = true;
-            index++;
-        }
+    void getInstruction(int ind)
+    { 
+        // move: 0, jump 1, box 2, cucumber 3
+        display.text =  instructions[ind];
+        display.enabled = true;
+        curr = System.DateTime.Now;
+        this.index = ind;
     }
 }
