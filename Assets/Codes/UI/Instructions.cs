@@ -5,37 +5,19 @@ using UnityEngine.UI;
 
 public class Instructions : MonoBehaviour
 {
-    private string[] instructions = {"Press Arrow Keys to Move", "Press Space Bar to Jump", "Hmm, what do these boxes do?", "Ewww, don't touch that cucumber"};
+    private string[] instructions = {"Press Arrow Keys to Move", 
+                                     "Press Space Bar to Jump",
+                                     "Hmm, what do these boxes do?", 
+                                     "Ewww, don't touch that cucumber", 
+                                     "Mmmm, that fish looks delicious, collect some"};
     public Text display;
-    private int index = -1;
+    private int index = 0;
     private System.DateTime curr;
 
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(this.index);
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            getInstruction(0);
-        }
-
-        if(Input.GetKeyDown(KeyCode.W))
-        {
-            getInstruction(1);
-        }
-
-
-        if(Input.GetKeyDown(KeyCode.E))
-        {
-            getInstruction(2);
-        }
-
-        if(Input.GetKeyDown(KeyCode.R))
-        {
-            getInstruction(3);
-        }
-
         switch(index)
         {
             case -1: break;
@@ -55,7 +37,7 @@ public class Instructions : MonoBehaviour
                 }
                 break;
 
-            case 2: case 3:
+            case 2: case 3: case 4:
                 if((System.DateTime.Now - curr).Seconds >= 3)
                 {
                     display.enabled = false;
@@ -65,9 +47,9 @@ public class Instructions : MonoBehaviour
         }
     }
 
-    void getInstruction(int ind)
+    public void getInstruction(int ind)
     { 
-        // move: 0, jump 1, box 2, cucumber 3
+        // move: 0, jump 1, box 2, cucumber 3, fish 4
         display.text =  instructions[ind];
         display.enabled = true;
         curr = System.DateTime.Now;
