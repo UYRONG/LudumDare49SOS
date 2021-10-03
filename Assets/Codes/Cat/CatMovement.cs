@@ -7,6 +7,7 @@ public class CatMovement : MonoBehaviour
 
     public Cat cat;
     public CatController catController;
+    public CatFormController catFormController;
     public Animator animator;
     public float runSpeed = 40f;
     float horizontalMove = 0f;
@@ -15,18 +16,20 @@ public class CatMovement : MonoBehaviour
 
     void Update(){
 
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-
+        if(cat.state != CatState.Gas || cat.isVisible){
+            Debug.Log("Move");
+            horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+            animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        }
         if(Input.GetButtonDown("Jump") && cat.state == CatState.Solid){
             jump = true;
         }
         else if(Input.GetButtonDown("Jump") && cat.state == CatState.Gas){
-            cat.toggleVisibility();
+            catFormController.changeVisibility();
         }
-        if(Input.GetKeyDown(KeyCode.Q)){
+        if(Input.GetKeyDown(KeyCode.Q) && (cat.state!= CatState.Gas || cat.state == CatState.Gas && cat.isVisible)){
             Debug.Log("Change form");
-            cat.changeform(false);
+            catFormController.changForm(false);
         }
     }
 
