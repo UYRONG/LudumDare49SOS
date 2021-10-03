@@ -15,9 +15,11 @@ public abstract class Box: MonoBehaviour
          audioSource.clip = box_sound;
      }
 
-     void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
         Debug.Log("OnCollisionEnter2D");
+
+        FindObjectOfType<GameManager>().getInstruction(2);
         //TODO: Enable at the last
         // audioSource.Play();
         this.interact(col.gameObject.GetComponent<Cat>());
