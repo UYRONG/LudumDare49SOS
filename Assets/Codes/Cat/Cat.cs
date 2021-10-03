@@ -8,6 +8,7 @@ public class Cat : MonoBehaviour
     [Range(0,9)]
     public int health;
     public CatState state ;
+    public Animator animator;
 
     public int numOfFish;
     public bool isVisible;
@@ -69,6 +70,7 @@ public class Cat : MonoBehaviour
         else{
             this.state = (CatState)(((int)this.state + 1)%3);
         }
+        animator.SetInteger("State", (int)state);
     }
 
     public void teleport(Vector2 v){

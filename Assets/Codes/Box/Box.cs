@@ -20,7 +20,7 @@ public abstract class Box: MonoBehaviour
         Debug.Log("OnCollisionEnter2D");
         audioSource.Play();
         this.interact(col.gameObject.GetComponent<Cat>());
-        Destroy(this.gameObject,2f);
+        Destroy(this.gameObject,1f);
     }
     
 }
