@@ -15,7 +15,7 @@ public abstract class Box: MonoBehaviour
          audioSource.clip = box_sound;
      }
 
-     void OnCollisionEnter2D(Collision2D col)
+    void OnCollisionEnter2D(Collision2D col)
     {
         Debug.Log("OnCollisionEnter2D");
 

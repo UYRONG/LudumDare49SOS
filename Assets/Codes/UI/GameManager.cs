@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour
 {
@@ -26,10 +28,26 @@ public class GameManager : MonoBehaviour
         counter++;
     }
 
+    public void reachCheckpoint()
+    {
+        if(cat.health > 0)
+        {
+            SceneManager.LoadScene("WinScene");
+        }
+        else
+        {
+            SceneManager.LoadScene("LoseScene");
+        }
+    }
     void Update()
     {
         setHealth(cat.health);
         setFish(cat.numOfFish);
+
+        if(cat.health <= 0)
+        {
+            SceneManager.LoadScene("LoseScene");
+        }
 
         if(ins.index == -1 && counter == 1)
         {
