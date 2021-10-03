@@ -17,14 +17,11 @@ public class HealthBar : MonoBehaviour
     private bool firstCucumber = true;
     private bool firstFish = true;
 
-    public int f, h;
     // Update is called once per frame
     void Update()
     {
-        setHealth(h);
-        setFish(f);
-        /*setHealth(cat.health);
-        setFish(cat.fishes);*/
+        setHealth(cat.health);
+        setFish(cat.numOfFish);
     }
 
     /*bool checkEnd()

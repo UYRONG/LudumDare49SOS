@@ -42,7 +42,7 @@ Camera:
   m_GameObject: {fileID: 1623835051334804}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 4
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 4173568434705544}
   - component: {fileID: 212169556484443374}
   - component: {fileID: 95234199776639680}
+  - component: {fileID: 29101953830883996}
   - component: {fileID: 6519110749148361712}
   - component: {fileID: 903058725407886366}
   - component: {fileID: 776234901560877003}
@@ -123,7 +124,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784235645598328}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.44, y: -1.1117971, z: 0}
+  m_LocalPosition: {x: -4.44, y: -0.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4566812615480170}
@@ -171,12 +172,12 @@ SpriteRenderer:
   m_SortingLayerID: 1401015027
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: 10b1fd605037d442294f67470e927706, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5919ba3dc2be44de98fc56510dd64fed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.5, y: 1.81}
+  m_Size: {x: 5.2, y: 5.2}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -190,9 +191,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784235645598328}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 86217d29647cf4ed98e803f2c0fb61a1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -201,6 +202,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &29101953830883996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784235645598328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6549c1445acbf4ab5a97ce14dc646a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  c: {fileID: 6519110749148361712}
+  col: {fileID: 61030017177824154}
+  sprite: {fileID: 212169556484443374}
+  ceil: {fileID: 794999439924225717}
+  ground: {fileID: 2068935686813423477}
 --- !u!114 &6519110749148361712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,8 +232,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  state: 0
+  state: 2
+  animator: {fileID: 95234199776639680}
   numOfFish: 0
+  isVisible: 0
 --- !u!114 &903058725407886366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,7 +276,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f53ec91bc55c247e490bb03a1802e83c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cat: {fileID: 6519110749148361712}
   catController: {fileID: 903058725407886366}
+  catFormController: {fileID: 0}
+  animator: {fileID: 95234199776639680}
   runSpeed: 40
 --- !u!61 &61030017177824154
 BoxCollider2D:
@@ -271,18 +294,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.15268123, y: -0.19451857}
+  m_Offset: {x: 0.3036778, y: -0.31779242}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 5.2, y: 5.2}
-    newSize: {x: 1.5, y: 1.81}
+    newSize: {x: 5.2, y: 5.2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.2462807, y: 4.2919364}
+  m_Size: {x: 3.7315736, y: 4.5764117}
   m_EdgeRadius: 0
 --- !u!50 &50304428359922864
 Rigidbody2D:
@@ -329,7 +352,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 794999439924225717}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.3, z: 0}
+  m_LocalPosition: {x: 0, y: 1.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4173568434705544}
@@ -344,7 +367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8303988926492512486}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068935686813423477}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.14023781, y: 1.88, z: -0.046875}
+  m_LocalPosition: {x: 0.14023781, y: -2.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4173568434705544}
