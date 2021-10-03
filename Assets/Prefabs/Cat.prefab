@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 4173568434705544}
   - component: {fileID: 212169556484443374}
   - component: {fileID: 95234199776639680}
+  - component: {fileID: 29101953830883996}
   - component: {fileID: 6519110749148361712}
   - component: {fileID: 903058725407886366}
   - component: {fileID: 776234901560877003}
@@ -201,6 +202,23 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &29101953830883996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784235645598328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6549c1445acbf4ab5a97ce14dc646a32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  c: {fileID: 6519110749148361712}
+  col: {fileID: 61030017177824154}
+  sprite: {fileID: 212169556484443374}
+  ceil: {fileID: 794999439924225717}
+  ground: {fileID: 2068935686813423477}
 --- !u!114 &6519110749148361712
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,6 +278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cat: {fileID: 6519110749148361712}
   catController: {fileID: 903058725407886366}
+  catFormController: {fileID: 0}
   animator: {fileID: 95234199776639680}
   runSpeed: 40
 --- !u!61 &61030017177824154
@@ -348,7 +367,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8303988926492512486}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -363,7 +382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2068935686813423477}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.14023781, y: -2.47, z: -0.046875}
+  m_LocalPosition: {x: 0.14023781, y: -2.47, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4173568434705544}

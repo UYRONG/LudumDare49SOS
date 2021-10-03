@@ -121,5 +121,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d34076730ec744fb89c39268a4fcd386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  box_sound: {fileID: 0}
+  box_sound: {fileID: 8300000, guid: 7586d88620efb48639889a3f0f4adbae, type: 3}
   teleportPosition: {x: 0, y: 0}
