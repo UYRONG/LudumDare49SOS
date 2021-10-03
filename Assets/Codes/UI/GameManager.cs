@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthBar : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     public Cat cat;
 
@@ -13,15 +13,29 @@ public class HealthBar : MonoBehaviour
     public Instructions ins;
 
     private int currLevel;
-    private bool firstBox = true;
-    private bool firstCucumber = true;
-    private bool firstFish = true;
 
+    private bool[] firsts = new bool[] {true, true, true, true, true};
+
+    private int counter = 0;
     // Update is called once per frame
+
+    void Start()
+    {
+        cat = FindObjectOfType<Cat>();
+        getInstruction(0);
+        counter++;
+    }
+
     void Update()
     {
         setHealth(cat.health);
         setFish(cat.numOfFish);
+
+        if(ins.index == -1 && counter == 1)
+        {
+            getInstruction(1);
+            counter++;
+        }
     }
 
     /*bool checkEnd()
@@ -41,26 +55,12 @@ public class HealthBar : MonoBehaviour
         }
     }*/
 
-    void getInstruction(int index)
+    public void getInstruction(int index)
     {
-        if(index == 0 || index == 1)
+        if(firsts[index])
         {
             ins.getInstruction(index);
-        }
-        else if(index == 2 && firstBox)
-        {
-            ins.getInstruction(index);
-            firstBox = false;
-        }
-        else if(index == 3 && firstCucumber)
-        {
-            ins.getInstruction(index);
-            firstCucumber = false;
-        }
-        else if(index == 4 && firstFish)
-        {
-            ins.getInstruction(index);
-            firstFish = false;
+            firsts[index] = false;
         }
     }
 

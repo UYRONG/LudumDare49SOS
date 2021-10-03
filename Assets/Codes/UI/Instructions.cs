@@ -11,7 +11,7 @@ public class Instructions : MonoBehaviour
                                      "Ewww, don't touch that cucumber", 
                                      "Mmmm, that fish looks delicious, collect some"};
     public Text display;
-    private int index = 0;
+    public int index = 0;
     private System.DateTime curr;
 
 
