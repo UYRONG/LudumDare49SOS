@@ -753,6 +753,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6307630873354742192, guid: 54eff137df8ea43b1ac3ed8ea6530f01,
+        type: 3}
+      propertyPath: BypassEffects
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4072132344328138119, guid: 54eff137df8ea43b1ac3ed8ea6530f01,
         type: 3}
       propertyPath: m_Name
