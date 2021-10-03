@@ -70,6 +70,7 @@ public class Cat : MonoBehaviour
         else{
             this.state = (CatState)(((int)this.state + 1)%3);
         }
+        this.isVisible = true;
         animator.SetInteger("State", (int)state);
     }
 
