@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   box_sound: {fileID: 8300000, guid: 7586d88620efb48639889a3f0f4adbae, type: 3}
-  teleportPosition: {x: -604.14, y: -297.36, z: 0}
+  teleportPosition: {x: 0, y: 0, z: 0}
 --- !u!82 &7143193384869313983
 AudioSource:
   m_ObjectHideFlags: 0
