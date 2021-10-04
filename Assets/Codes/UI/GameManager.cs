@@ -62,6 +62,10 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("LoseScene");
         }
 
+        if(cat.GetComponent<Rigidbody2D>().velocity.y < -50f)
+        {
+            SceneManager.LoadScene("LimboScene");
+        }
     }
 
     /*bool checkEnd()
