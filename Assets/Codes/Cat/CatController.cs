@@ -74,8 +74,6 @@ public class CatController : MonoBehaviour
 		}
 
 		//only control the player if grounded or airControl is turned on
-		if (m_Grounded || m_AirControl)
-		{
 
 			// If crouching
 			if (crouch)
@@ -122,7 +120,7 @@ public class CatController : MonoBehaviour
 				// ... flip the player.
 				Flip();
 			}
-		}
+
 		// If the player should jump...
 		if (m_Grounded && jump)
 		{
