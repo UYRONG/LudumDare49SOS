@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour
 {
 
+    public string firstScene;
     public void playGame()
     {
-        SceneManager.LoadScene("TestScene");
-        SceneManager.LoadScene("UIScene", LoadSceneMode.Additive);
+        SceneManager.LoadScene(firstScene);
     }
 }

@@ -7,8 +7,9 @@ public class FormBox : Box
 
         public override void interact(Cat c){
             float chance = Utils.generateRandom();
-            if(chance > 0.5f){
-                c.changeform(true);
+            CatFormController cf = c.gameObject.GetComponent<CatFormController>();
+            if(chance > 0.0f){
+                cf.changeForm(true);
             }
         }
 }

@@ -15,6 +15,7 @@ public class CatFormController : MonoBehaviour
 
     private Vector2[] cg_solid_gas = {new Vector2(0f,1.8f), new Vector2(0.1402378f,-2.47f)};
     private Vector2[] cg_liquid = {new Vector2(0f,0.6f), new Vector2(0.1402378f,-0.91f)};
+    
 
     public void Update(){
         switch(c.state){
@@ -29,13 +30,14 @@ public class CatFormController : MonoBehaviour
                 break;
         }
     }
-    public void changForm(bool isRandom){
-        c.changeform(isRandom);
+    public void changeForm(bool isRandom){
+        c.changeForm(isRandom);
         switch(c.state){
             case CatState.Solid:
                 applyNewColSize(col_solid_gas);
                 break;
             case CatState.Liquid:
+                Debug.Log("Change to liquid");
                 applyNewColSize(col_liquid);
                 break;
             case CatState.Gas:
