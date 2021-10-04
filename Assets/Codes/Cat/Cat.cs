@@ -111,4 +111,11 @@ public class Cat : MonoBehaviour
         }
     }
 
+    public void pray(){
+        if(numOfFish >= 10){
+            numOfFish -=10;
+            addHealth();
+        }
+    }
+
 }
