@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
 
     private static GameManager _instance;
 
+    public float fallingThreshold = -50f;
+
     public static GameManager Instance
     {
         get
@@ -62,7 +64,7 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("LoseScene");
         }
 
-        if(cat.GetComponent<Rigidbody2D>().velocity.y < -50f)
+        if(cat.GetComponent<Rigidbody2D>().velocity.y < fallingThreshold)
         {
             SceneManager.LoadScene("LimboScene");
         }
