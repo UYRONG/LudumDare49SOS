@@ -18,7 +18,7 @@ public class Enermy : MonoBehaviour
     {
         lastActionTime = System.DateTime.Now;
     }
-    void Update()
+    void FixedUpdate()
     {   
         if (MoveRight){
             transform.Translate(2 * Time.deltaTime * speed, 0, 0);
@@ -27,7 +27,7 @@ public class Enermy : MonoBehaviour
             transform.Translate(-2 * Time.deltaTime * speed, 0, 0);
         }
         
-        if(this.transform.position.x < leftx || this.transform.position.x >rightx ){
+        if((this.transform.position.x < leftx) || this.transform.position.x >rightx ){
             Debug.Log("OK");
             if (MoveRight){
                 MoveRight = false;
@@ -36,9 +36,16 @@ public class Enermy : MonoBehaviour
                 MoveRight = true;
             }
         }
-
-                
     }
+
+    //     if (this.transform.position.x < leftx && (MoveRight==false)){
+    //         MoveRight = true;
+    //     }
+    //     else if (this.transform.position.x > rightx && MoveRight){
+    //         MoveRight = false;
+    //     }
+                
+    // }
 
     // Start is called before the first frame update
     void OnCollisionEnter2D(Collision2D col)
