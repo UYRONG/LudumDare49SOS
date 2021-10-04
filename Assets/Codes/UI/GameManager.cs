@@ -7,53 +7,61 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public Cat cat;
-
+    [Header("UI Object")]
     public Text health;
     public Text fishes;
+    public Text state;
     
-    public Instructions ins;
+    [Header("Data Obeject")]
+    public Cat cat;
+    public GameState gamestate;
+    public GameObject lose_pos;
 
-    private int currLevel;
+    private static GameManager _instance;
 
-    private bool[] firsts = new bool[] {true, true, true, true, true};
+    public static GameManager Instance
+    {
+        get
+        {
+            if(_instance == null)
+            {
+                GameObject go = new GameObject("GameManager");
+                go.AddComponent<GameManager>();
+            }
+ 
+            return _instance;
+        }
+    }
 
-    private int counter = 0;
-    // Update is called once per frame
-
+    void Awake()
+    {
+        _instance = this;
+    }
+ 
     void Start()
     {
-        cat = FindObjectOfType<Cat>();
-        getInstruction(0);
-        counter++;
+        gamestate = GameState.Start;
     }
 
     public void reachCheckpoint()
     {
-        if(cat.health > 0)
-        {
-            SceneManager.LoadScene("WinScene");
-        }
-        else
-        {
-            SceneManager.LoadScene("LoseScene");
-        }
+        
+        SceneManager.LoadScene("WinScene");
     }
+
     void Update()
     {
+        //Set Health and Fish 
         setHealth(cat.health);
         setFish(cat.numOfFish);
+        setState(cat.getState());
 
+        //Lose and Win
         if(cat.health <= 0)
         {
             SceneManager.LoadScene("LoseScene");
         }
 
-        if(ins.index == -1 && counter == 1)
-        {
-            getInstruction(1);
-            counter++;
-        }
     }
 
     /*bool checkEnd()
@@ -73,15 +81,6 @@ public class GameManager : MonoBehaviour
         }
     }*/
 
-    public void getInstruction(int index)
-    {
-        if(firsts[index])
-        {
-            ins.getInstruction(index);
-            firsts[index] = false;
-        }
-    }
-
     void setHealth(int h)
     {
         this.health.text = "x " + h.ToString();
@@ -90,6 +89,10 @@ public class GameManager : MonoBehaviour
     void setFish(int f)
     {
         this.fishes.text = "x " + f.ToString();
+    }
+
+    void setState(string s){
+        this.state.text = s;
     }
 
 }

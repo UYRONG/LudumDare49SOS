@@ -17,19 +17,17 @@ public class CatMovement : MonoBehaviour
     void Update(){
 
         if(cat.state != CatState.Gas || cat.isVisible){
-            Debug.Log("Move");
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
             animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
         }
         if(Input.GetButtonDown("Jump") && cat.state == CatState.Solid){
             jump = true;
         }
-        else if(Input.GetButtonDown("Jump") && cat.state == CatState.Gas){
+        else if(Input.GetButtonDown("Jump") && cat.state == CatState.Gas && horizontalMove == 0){
             catFormController.changeVisibility();
         }
         if(Input.GetKeyDown(KeyCode.Q) && (cat.state!= CatState.Gas || cat.state == CatState.Gas && cat.isVisible)){
-            Debug.Log("Change form");
-            catFormController.changForm(false);
+            catFormController.changeForm(false);
         }
     }
 

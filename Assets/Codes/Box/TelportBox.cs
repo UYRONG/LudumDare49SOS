@@ -5,11 +5,11 @@ using UnityEngine;
 public class TelportBox : Box
 {
 
-    public Vector2 teleportPosition;
+    public Vector3 teleportPosition;
 
         public override void interact(Cat c){
             float chance = Utils.generateRandom();
-            if(chance > 0.5f){
+            if(chance > 0.0f){
                 c.teleport(teleportPosition);
             }
         }

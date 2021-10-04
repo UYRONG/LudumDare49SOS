@@ -62,7 +62,7 @@ public class Cat : MonoBehaviour
 
 
     //Form
-    public void changeform(bool random){
+    public void changeForm(bool random){
         if(random){
             int r = Random.Range(0,3);
             this.state = (CatState) r;
@@ -74,7 +74,7 @@ public class Cat : MonoBehaviour
         animator.SetInteger("State", (int)state);
     }
 
-    public void teleport(Vector2 v){
+    public void teleport(Vector3 v){
         transform.position = v;
     }
 
@@ -92,6 +92,22 @@ public class Cat : MonoBehaviour
         }
         else{
             visible();
+        }
+    }
+
+    public string getState(){
+        switch(state){
+            case CatState.Solid:
+                return "Solid";
+                break;
+            case CatState.Liquid:
+                return "Liquid";
+                break;
+            case CatState.Gas:
+                return "Gas";
+                break;
+            default:
+                return "";
         }
     }
 
