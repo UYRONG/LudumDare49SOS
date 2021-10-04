@@ -20,7 +20,7 @@ public abstract class Box: MonoBehaviour
         //TODO: Enable at the last
         // audioSource.Play();
         this.interact(col.gameObject.GetComponent<Cat>());
-        Destroy(this.gameObject,1f);
+        Destroy(this.gameObject,0.3f);
     }
     
 }
