@@ -29,6 +29,9 @@ public class CatFormController : MonoBehaviour
                 applyAnchorPoint(cg_solid_gas);
                 break;
         }
+        // if(col.enabled == false){
+        //     this.transform.position = currentPosition;
+        // }
     }
     public void changeForm(bool isRandom){
         c.changeForm(isRandom);
@@ -50,10 +53,14 @@ public class CatFormController : MonoBehaviour
         c.toggleVisibility();
         Color color = sprite.material.color;
         if(c.isVisible){
+            col.enabled = true;
+            this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 3;
             color.a = 1.0f;
             sprite.material.color = color;
         }
         else{
+            col.enabled = false;
+            this.gameObject.GetComponent<Rigidbody2D>().gravityScale = 0;
             color.a = 0.5f;
             sprite.material.color = color;
         }

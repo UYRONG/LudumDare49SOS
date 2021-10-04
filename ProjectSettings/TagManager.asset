@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Platform
   - Wall
+  - turn
   layers:
   - Default
   - TransparentFX
