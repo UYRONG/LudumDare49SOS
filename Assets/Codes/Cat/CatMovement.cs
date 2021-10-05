@@ -26,8 +26,12 @@ public class CatMovement : MonoBehaviour
         else if(Input.GetButtonDown("Jump") && cat.state == CatState.Gas && horizontalMove == 0){
             catFormController.changeVisibility();
         }
-        if(Input.GetKeyDown(KeyCode.Q) && (cat.state!= CatState.Gas || cat.state == CatState.Gas && cat.isVisible)){
+        if(Input.GetKeyDown(KeyCode.Q) && cat.numOfFish > 0 && (cat.state!= CatState.Gas || cat.state == CatState.Gas && cat.isVisible)){
             catFormController.changeForm(false);
+            cat.numOfFish--;
+        }
+        if(Input.GetKeyDown(KeyCode.E)){
+            cat.pray();
         }
     }
 
