@@ -22,7 +22,7 @@ and phase changes to the cat that may help or stop you from winning the game.
 
 - https://ldjam.com/events/ludum-dare/49/schrodingers-cat?dt_dapp=1
 
-###Contributions
+### Contributions
 - @chelize: gameplay mechanics, architecture, debugging;
 - @shallowdream: level design, gameplay mechanics;
 - @zorakilla: game art design, level design;
