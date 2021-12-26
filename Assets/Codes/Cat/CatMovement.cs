@@ -9,7 +9,7 @@ public class CatMovement : MonoBehaviour
     public CatController catController;
     public CatFormController catFormController;
     public Animator animator;
-    public float runSpeed = 40f;
+    public float runSpeed = 50f;
     float horizontalMove = 0f;
 
     bool jump = false;
